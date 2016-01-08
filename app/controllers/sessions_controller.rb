@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # log user in and redirect to users show page
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user_path(user)
+      redirect_back_or user
     else
       # flash is an object, danger is key, string is value
       # person = { name: "Jono" }
